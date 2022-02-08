@@ -11,7 +11,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const app = express();
-const port = 3000;
+//const port = 3000;
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -42,7 +42,7 @@ app.post("/", function (req, res) {
 
   const options = {
     method: "POST",
-    auth: "sukriti:2bad108e92ae1b2fb1922dbc1d4db0a7-us14",
+    auth: "sukriti:74b50bf3d9b5fa5aab02e15b91db6fd2-us14",
   };
   const request = https.request(url, options, function (response) {
     if (response.statusCode === 200) {
@@ -64,7 +64,7 @@ app.post("/failure.htm", function (req, res) {
   res.redirect("/");
 });
 
-app.listen(3000, function () {
+app.listen(process.env.PORT || 3000, function () {
   console.log("server is running");
 });
 
